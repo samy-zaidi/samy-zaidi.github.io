@@ -78,3 +78,32 @@ nav a:hover {
 html {
     scroll-behavior: smooth;
 }
+
+.projet {
+    margin-top: 30px;
+    padding: 30px;
+    background-color: #eef3f6;
+    border-left: 4px solid #28a9c7;
+}
+
+.projet h3 {
+    margin-top: 0;
+    color: #10263d;
+    font-size: 26px;
+}
+
+.projet h4 {
+    margin-bottom: 5px;
+    color: #24516f;
+}
+
+.type-projet {
+    color: #607485;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.projet ul {
+    padding-left: 20px;
+}
