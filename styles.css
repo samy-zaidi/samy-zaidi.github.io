@@ -1,0 +1,80 @@
+/* Style général de la page */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #172033;
+    background-color: #f4f6f8;
+    line-height: 1.6;
+}
+
+/* Section d’introduction */
+header {
+    min-height: 60vh;
+    padding: 80px 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    text-align: center;
+    background-color: #10263d;
+}
+
+header h1 {
+    margin-bottom: 5px;
+    font-size: 52px;
+}
+
+header p {
+    margin-top: 0;
+    color: #a9d9e8;
+    font-size: 21px;
+}
+
+/* Contenu principal */
+main {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 25px;
+}
+
+section {
+    margin-bottom: 60px;
+    padding: 30px;
+    background-color: white;
+    border-left: 5px solid #28a9c7;
+}
+
+h2 {
+    color: #10263d;
+    font-size: 30px;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+
+    padding: 18px;
+    background-color: #081a2c;
+}
+
+nav a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #5bd5ee;
+}
+
+html {
+    scroll-behavior: smooth;
+}
