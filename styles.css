@@ -1,4 +1,9 @@
 /* Style général de la page */
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -106,4 +111,61 @@ html {
 
 .projet ul {
     padding-left: 20px;
+}
+
+.image-projet {
+    width: 100%;
+    max-width: 750px;
+    margin: 30px auto;
+}
+
+.image-projet img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+
+    border: 1px solid #cbd5dc;
+}
+
+.image-projet figcaption {
+    margin-top: 8px;
+    color: #607485;
+    font-size: 13px;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+@media (max-width: 700px) {
+    .image-projet {
+        width: 100%;
+    }
+}
+
+.grille-competences {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.competence {
+    padding: 25px;
+    background-color: #eef3f6;
+    border-top: 4px solid #28a9c7;
+}
+
+.competence h3 {
+    margin-top: 0;
+    color: #10263d;
+}
+
+.competence ul {
+    margin-bottom: 0;
+    padding-left: 20px;
+}
+
+@media (max-width: 700px) {
+    .grille-competences {
+        grid-template-columns: 1fr;
+    }
 }
