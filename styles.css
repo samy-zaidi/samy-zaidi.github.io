@@ -1,7 +1,13 @@
-/* Style général de la page */
+/* =========================================================
+   RÉGLAGES GÉNÉRAUX
+   ========================================================= */
 
 * {
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -12,7 +18,45 @@ body {
     line-height: 1.6;
 }
 
-/* Section d’introduction */
+body.lightbox-active {
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 35px;
+
+    padding: 18px 25px;
+    background-color: #081a2c;
+}
+
+nav a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    color: #5bd5ee;
+}
+
+
+/* =========================================================
+   EN-TÊTE
+   ========================================================= */
+
 header {
     min-height: 60vh;
     padding: 80px 25px;
@@ -28,18 +72,23 @@ header {
 }
 
 header h1 {
-    margin-bottom: 5px;
+    margin: 0 0 5px;
     font-size: 52px;
 }
 
 header p {
-    margin-top: 0;
+    margin: 0;
     color: #a9d9e8;
     font-size: 21px;
 }
 
-/* Contenu principal */
+
+/* =========================================================
+   CONTENU PRINCIPAL
+   ========================================================= */
+
 main {
+    width: 100%;
     max-width: 1000px;
     margin: auto;
     padding: 40px 25px;
@@ -48,83 +97,389 @@ main {
 section {
     margin-bottom: 60px;
     padding: 30px;
+
+    scroll-margin-top: 90px;
+
     background-color: white;
     border-left: 5px solid #28a9c7;
 }
 
 h2 {
+    margin-top: 0;
     color: #10263d;
     font-size: 30px;
 }
 
-nav {
-    position: sticky;
-    top: 0;
-    z-index: 10;
 
-    display: flex;
-    justify-content: center;
-    gap: 35px;
-
-    padding: 18px;
-    background-color: #081a2c;
-}
-
-nav a {
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-nav a:hover {
-    color: #5bd5ee;
-}
-
-html {
-    scroll-behavior: smooth;
-}
+/* =========================================================
+   PROJETS DÉROULABLES
+   ========================================================= */
 
 .projet {
-    margin-top: 30px;
-    padding: 30px;
+    margin-top: 25px;
+
+    overflow: hidden;
+
     background-color: #eef3f6;
     border-left: 4px solid #28a9c7;
 }
 
-.projet h3 {
-    margin-top: 0;
-    color: #10263d;
-    font-size: 26px;
+/* Enlève le triangle placé automatiquement par le navigateur */
+
+.projet summary {
+    list-style: none;
 }
 
-.projet h4 {
-    margin-bottom: 5px;
-    color: #24516f;
+.projet summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Partie visible lorsque le projet est fermé */
+
+.resume-projet {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    min-height: 105px;
+    padding: 25px 30px;
+
+    cursor: pointer;
+    user-select: none;
+}
+
+.resume-projet:hover,
+.resume-projet:focus-visible {
+    background-color: #e3edf2;
+}
+
+.resume-projet:focus-visible {
+    outline: 3px solid #28a9c7;
+    outline-offset: -3px;
+}
+
+.titre-projet {
+    min-width: 0;
+}
+
+.titre-projet h3 {
+    margin: 0 0 3px;
+    color: #10263d;
+    font-size: 26px;
+    line-height: 1.25;
 }
 
 .type-projet {
+    margin: 0;
+
     color: #607485;
     font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
 }
 
-.projet ul {
+/* Bouton + du projet */
+
+.icone-projet {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    color: white;
+    background-color: #10263d;
+    border-radius: 50%;
+
+    font-size: 27px;
+    font-weight: normal;
+    line-height: 1;
+
+    transition:
+        transform 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.resume-projet:hover .icone-projet {
+    background-color: #28a9c7;
+}
+
+/* Transforme le + lorsque le projet est ouvert */
+
+.projet[open] .icone-projet {
+    transform: rotate(45deg);
+}
+
+/* Contenu visible lorsque le projet est ouvert */
+
+.contenu-projet {
+    padding: 5px 30px 30px;
+    border-top: 1px solid #cbd5dc;
+}
+
+.contenu-projet h4 {
+    margin-top: 30px;
+    margin-bottom: 5px;
+    color: #24516f;
+}
+
+.contenu-projet ul {
     padding-left: 20px;
 }
 
-.image-projet {
+
+/* =========================================================
+   SOUS-PROJETS ESTEBAN
+   ========================================================= */
+
+.sous-projet {
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid #cbd5dc;
+}
+
+.sous-projet h5 {
+    margin: 0 0 10px;
+    color: #10263d;
+    font-size: 20px;
+}
+
+.sous-projet > p {
+    max-width: 750px;
+}
+
+
+/* =========================================================
+   LIENS ET BOUTONS
+   ========================================================= */
+
+.lien-projet {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 16px;
+
+    color: white;
+    background-color: #10263d;
+
+    font-weight: bold;
+    text-decoration: none;
+
+    transition: background-color 0.2s ease;
+}
+
+.lien-projet:hover,
+.lien-projet:focus-visible {
+    background-color: #28a9c7;
+}
+
+
+/* =========================================================
+   DOCUMENT PDF
+   ========================================================= */
+
+.document-projet {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    max-width: 750px;
+    margin: 25px 0;
+    padding: 18px;
+
+    background-color: white;
+    border: 1px solid #cbd5dc;
+    border-left: 4px solid #28a9c7;
+}
+
+.icone-document {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 55px;
+    height: 55px;
+
+    color: white;
+    background-color: #10263d;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.informations-document {
+    flex: 1;
+}
+
+.informations-document h6 {
+    margin: 0 0 5px;
+    color: #10263d;
+    font-size: 17px;
+}
+
+.informations-document p {
+    margin: 0;
+    color: #607485;
+    font-size: 14px;
+}
+
+.actions-document {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.actions-document a {
+    display: inline-block;
+    padding: 8px 12px;
+
+    color: white;
+    background-color: #10263d;
+
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.actions-document a:hover,
+.actions-document a:focus-visible {
+    background-color: #28a9c7;
+}
+
+
+/* =========================================================
+   GALERIES D’IMAGES
+   ========================================================= */
+
+.galerie-projet {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(180px, 1fr)
+    );
+
+    gap: 18px;
+    margin: 22px 0 30px;
+}
+
+.galerie-projet figure {
+    min-width: 0;
+    margin: 0;
+}
+
+.bouton-image {
+    display: block;
+
+    width: 100%;
+    padding: 0;
+    aspect-ratio: 4 / 3;
+
+    overflow: hidden;
+    cursor: zoom-in;
+
+    background-color: white;
+    border: none;
+}
+
+.galerie-projet img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: white;
+    border: 1px solid #cbd5dc;
+
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
+}
+
+/* Remplit complètement le cadre et peut rogner l’image */
+
+.galerie-projet img.image-cover {
+    object-fit: cover;
+}
+
+/* Affiche l’image au complet et peut laisser des espaces */
+
+.galerie-projet img.image-contain {
+    object-fit: contain;
+}
+
+/* Positions optionnelles pour les images avec object-fit: cover */
+
+.galerie-projet img.position-haut {
+    object-position: center top;
+}
+
+.galerie-projet img.position-bas {
+    object-position: center bottom;
+}
+
+.galerie-projet img.position-gauche {
+    object-position: left center;
+}
+
+.galerie-projet img.position-droite {
+    object-position: right center;
+}
+
+/* Effet au survol */
+
+.bouton-image:hover img,
+.bouton-image:focus-visible img {
+    transform: scale(1.06);
+    filter: brightness(1.08);
+}
+
+.bouton-image:focus-visible {
+    outline: 3px solid #28a9c7;
+    outline-offset: 3px;
+}
+
+.galerie-projet figcaption {
+    margin-top: 7px;
+    color: #607485;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   IMAGE PRINCIPALE DE DAEDALUS
+   ========================================================= */
+
+.galerie-unique {
+    display: block;
     width: 100%;
     max-width: 750px;
     margin: 30px auto;
 }
 
+.image-projet {
+    width: 100%;
+    margin: 0;
+}
+
+.image-projet .bouton-image {
+    height: auto;
+    aspect-ratio: auto;
+}
+
 .image-projet img {
     display: block;
+
     width: 100%;
-    max-width: 100%;
     height: auto;
 
+    object-fit: contain;
+    background-color: white;
     border: 1px solid #cbd5dc;
 }
 
@@ -136,11 +491,10 @@ html {
     line-height: 1.4;
 }
 
-@media (max-width: 700px) {
-    .image-projet {
-        width: 100%;
-    }
-}
+
+/* =========================================================
+   COMPÉTENCES
+   ========================================================= */
 
 .grille-competences {
     display: grid;
@@ -164,8 +518,860 @@ html {
     padding-left: 20px;
 }
 
+
+/* =========================================================
+   LIGHTBOX
+   ========================================================= */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    padding: 60px 90px 25px;
+
+    overflow: hidden;
+    background-color: rgba(3, 12, 22, 0.96);
+}
+
+.lightbox.ouverte {
+    display: flex;
+}
+
+/* Contenu central */
+
+.lightbox-contenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    height: calc(100vh - 85px);
+    height: calc(100dvh - 85px);
+    max-width: 1100px;
+}
+
+/* Cadre qui empêche l’image zoomée de sortir de l’écran */
+
+.zone-image-lightbox {
+    flex: 1;
+    min-height: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    overflow: hidden;
+    cursor: zoom-in;
+    touch-action: none;
+}
+
+/* Image agrandie */
+
+.lightbox-contenu img {
+    display: block;
+
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+    user-select: none;
+    -webkit-user-drag: none;
+
+    transform-origin: center center;
+
+    transition: transform 0.2s ease;
+}
+
+/* Classes utilisées lorsque l’image est zoomée */
+
+.lightbox-contenu img.zoomee {
+    cursor: grab;
+}
+
+.lightbox-contenu img.en-deplacement {
+    cursor: grabbing;
+    transition: none;
+}
+
+/* Description de l’image */
+
+.lightbox-contenu > p {
+    flex-shrink: 0;
+
+    max-width: 900px;
+    max-height: 12vh;
+    margin: 10px 0 0;
+
+    overflow-y: auto;
+
+    color: white;
+    text-align: center;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   CONTRÔLES DU ZOOM
+   ========================================================= */
+
+.controles-zoom {
+    flex-shrink: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    margin-top: 12px;
+}
+
+.controles-zoom button {
+    min-width: 42px;
+    min-height: 38px;
+    padding: 7px 12px;
+
+    color: white;
+    cursor: pointer;
+
+    background-color: #10263d;
+    border: 1px solid #5c7183;
+    border-radius: 4px;
+
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.controles-zoom button:hover,
+.controles-zoom button:focus-visible {
+    background-color: #28a9c7;
+}
+
+#niveau-zoom {
+    min-width: 65px;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   BOUTONS DE LA LIGHTBOX
+   ========================================================= */
+
+.lightbox-fermer,
+.lightbox-precedent,
+.lightbox-suivant {
+    position: absolute;
+    z-index: 1010;
+
+    color: white;
+    cursor: pointer;
+
+    background: none;
+    border: none;
+}
+
+.lightbox-fermer {
+    top: 10px;
+    right: 20px;
+
+    padding: 5px 12px;
+    font-size: 45px;
+    line-height: 1;
+}
+
+.lightbox-precedent,
+.lightbox-suivant {
+    top: 50%;
+
+    padding: 15px;
+    font-size: 45px;
+
+    transform: translateY(-50%);
+}
+
+.lightbox-precedent {
+    left: 20px;
+}
+
+.lightbox-suivant {
+    right: 20px;
+}
+
+.lightbox-fermer:hover,
+.lightbox-fermer:focus-visible,
+.lightbox-precedent:hover,
+.lightbox-precedent:focus-visible,
+.lightbox-suivant:hover,
+.lightbox-suivant:focus-visible {
+    color: #5bd5ee;
+}
+
+.lightbox button[hidden] {
+    display: none;
+}
+
+
+/* =========================================================
+   TABLETTES
+   ========================================================= */
+
+@media (max-width: 900px) {
+    .lightbox {
+        padding-right: 65px;
+        padding-left: 65px;
+    }
+
+    .lightbox-precedent {
+        left: 5px;
+    }
+
+    .lightbox-suivant {
+        right: 5px;
+    }
+}
+
+
+/* =========================================================
+   TÉLÉPHONES
+   ========================================================= */
+
 @media (max-width: 700px) {
+    nav {
+        gap: 16px;
+        padding: 14px;
+    }
+
+    header {
+        min-height: 50vh;
+        padding: 60px 20px;
+    }
+
+    header h1 {
+        font-size: 38px;
+    }
+
+    header p {
+        font-size: 18px;
+    }
+
+    main {
+        padding: 25px 15px;
+    }
+
+    section {
+        margin-bottom: 35px;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    /* Projets déroulables */
+
+    .resume-projet {
+        min-height: 90px;
+        padding: 20px;
+    }
+
+    .titre-projet h3 {
+        font-size: 21px;
+    }
+
+    .type-projet {
+        font-size: 12px;
+    }
+
+    .icone-projet {
+        width: 36px;
+        height: 36px;
+        font-size: 23px;
+    }
+
+    .contenu-projet {
+        padding: 5px 20px 25px;
+    }
+
+    /* Images */
+
+    .galerie-projet {
+        grid-template-columns: 1fr;
+    }
+
+    .image-projet,
+    .galerie-unique {
+        width: 100%;
+    }
+
+    /* Compétences */
+
     .grille-competences {
         grid-template-columns: 1fr;
+    }
+
+    /* Document PDF */
+
+    .document-projet {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .actions-document {
+        width: 100%;
+    }
+
+    /* Lightbox */
+
+    .lightbox {
+        padding: 55px 42px 12px;
+    }
+
+    .lightbox-contenu {
+        height: calc(100vh - 67px);
+        height: calc(100dvh - 67px);
+    }
+
+    .lightbox-fermer {
+        top: 5px;
+        right: 8px;
+        font-size: 38px;
+    }
+
+    .lightbox-precedent,
+    .lightbox-suivant {
+        padding: 8px;
+        font-size: 32px;
+    }
+
+    .lightbox-precedent {
+        left: 1px;
+    }
+
+    .lightbox-suivant {
+        right: 1px;
+    }
+
+    .controles-zoom {
+        margin-top: 8px;
+    }
+
+    .controles-zoom button {
+        min-width: 38px;
+        min-height: 35px;
+        padding: 5px 9px;
+        font-size: 14px;
+    }
+
+    #niveau-zoom {
+        min-width: 55px;
+        font-size: 13px;
+    }
+
+    .lightbox-contenu > p {
+        max-height: 10vh;
+        margin-top: 7px;
+        font-size: 12px;
+    }
+}
+
+
+/* =========================================================
+   TRÈS PETITS ÉCRANS
+   ========================================================= */
+
+@media (max-width: 420px) {
+    nav {
+        gap: 12px;
+        font-size: 14px;
+    }
+
+    .resume-projet {
+        gap: 12px;
+        padding: 17px;
+    }
+
+    .contenu-projet {
+        padding-right: 17px;
+        padding-left: 17px;
+    }
+
+    .lightbox {
+        padding-right: 35px;
+        padding-left: 35px;
+    }
+
+    #zoom-reinitialiser {
+        font-size: 12px;
+    }
+}
+
+
+/* =========================================================
+   ACCESSIBILITÉ
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+/* =========================================================
+   CORRECTIF FINAL — PROJETS DÉROULABLES
+   ========================================================= */
+
+.projet > summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    width: 100%;
+    min-height: 105px;
+    padding: 25px 30px;
+
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    outline: none;
+}
+
+.projet > summary::-webkit-details-marker {
+    display: none;
+}
+
+.projet > summary:hover {
+    background-color: #e3edf2;
+}
+
+.projet > summary:focus-visible {
+    box-shadow: inset 0 0 0 3px #28a9c7;
+}
+
+/* Texte du projet */
+
+.projet > summary .resume-projet {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+
+    background: none;
+}
+
+.projet > summary .resume-projet:hover {
+    background: none;
+}
+
+.projet > summary .titre-projet {
+    color: #10263d;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+.projet > summary .type-projet {
+    margin: 0;
+
+    color: #607485;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+/* Cercle contenant le signe + */
+
+.projet > summary .icone-projet {
+    flex: 0 0 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    color: white;
+    background-color: #10263d;
+    border-radius: 50%;
+
+    font-size: 27px;
+    font-weight: normal;
+    line-height: 1;
+
+    transition:
+        transform 0.25s ease,
+        background-color 0.25s ease;
+}
+
+/* Ajoute le signe + dans le cercle vide */
+
+.projet > summary .icone-projet::before {
+    content: "+";
+    display: block;
+}
+
+.projet > summary:hover .icone-projet {
+    background-color: #28a9c7;
+}
+
+/* Le + devient un × lorsque le projet est ouvert */
+
+.projet[open] > summary .icone-projet {
+    transform: rotate(45deg);
+}
+
+.projet[open] > summary {
+    border-bottom: 1px solid #cbd5dc;
+}
+
+
+/* =========================================================
+   CORRECTIF — GALERIES
+   ========================================================= */
+
+.contenu-projet,
+.sous-projet,
+.galerie-projet,
+.galerie-projet figure,
+.bouton-image {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.galerie-projet {
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(180px, 100%), 1fr)
+    );
+}
+
+.bouton-image {
+    overflow: hidden;
+}
+
+.galerie-projet img {
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   CORRECTIF FINAL — LIGHTBOX
+   ========================================================= */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    padding: 55px 80px 20px;
+
+    overflow: hidden;
+    background-color: rgba(3, 12, 22, 0.96);
+}
+
+.lightbox.ouverte {
+    display: flex;
+}
+
+.lightbox-contenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    min-width: 0;
+    min-height: 0;
+
+    overflow: hidden;
+}
+
+/*
+   Cette zone constitue la fenêtre visible.
+   Tout ce qui dépasse pendant le zoom est caché.
+*/
+
+.zone-image-lightbox {
+    position: relative;
+
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+
+    overflow: hidden;
+    contain: paint;
+
+    cursor: zoom-in;
+    touch-action: none;
+}
+
+/*
+   L’image prend exactement la taille de la zone.
+   object-fit: contain conserve ses proportions.
+*/
+
+#lightbox-image {
+    position: absolute;
+    inset: 0;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+
+    object-fit: contain;
+
+    border: none;
+    user-select: none;
+    -webkit-user-drag: none;
+
+    transform-origin: center center;
+    transition: transform 0.2s ease;
+}
+
+.zone-image-lightbox.zoom-actif {
+    cursor: grab;
+}
+
+.zone-image-lightbox.deplacement-actif {
+    cursor: grabbing;
+}
+
+.zone-image-lightbox.deplacement-actif #lightbox-image {
+    transition: none;
+}
+
+/* Contrôles du zoom */
+
+.controles-zoom {
+    flex: 0 0 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    width: 100%;
+    margin-top: 12px;
+}
+
+.controles-zoom button {
+    min-width: 42px;
+    min-height: 38px;
+    padding: 7px 12px;
+
+    color: white;
+    cursor: pointer;
+
+    background-color: #10263d;
+    border: 1px solid #5c7183;
+    border-radius: 4px;
+
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.controles-zoom button:hover,
+.controles-zoom button:focus-visible {
+    background-color: #28a9c7;
+}
+
+#niveau-zoom {
+    min-width: 65px;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Légende */
+
+#lightbox-description {
+    flex: 0 0 auto;
+
+    width: 100%;
+    max-width: 900px;
+    max-height: 15vh;
+    margin: 10px 0 0;
+
+    overflow-y: auto;
+
+    color: white;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Boutons fermer, précédent et suivant */
+
+.lightbox-fermer,
+.lightbox-precedent,
+.lightbox-suivant {
+    position: absolute;
+    z-index: 1010;
+
+    color: white;
+    cursor: pointer;
+
+    background: none;
+    border: none;
+}
+
+.lightbox-fermer {
+    top: 8px;
+    right: 15px;
+
+    padding: 5px 12px;
+
+    font-size: 45px;
+    line-height: 1;
+}
+
+.lightbox-precedent,
+.lightbox-suivant {
+    top: 50%;
+    padding: 12px;
+
+    font-size: 42px;
+
+    transform: translateY(-50%);
+}
+
+.lightbox-precedent {
+    left: 15px;
+}
+
+.lightbox-suivant {
+    right: 15px;
+}
+
+.lightbox-fermer:hover,
+.lightbox-precedent:hover,
+.lightbox-suivant:hover {
+    color: #5bd5ee;
+}
+
+.lightbox button[hidden] {
+    display: none;
+}
+
+
+/* =========================================================
+   CORRECTIF MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+    .projet > summary {
+        gap: 15px;
+        min-height: 90px;
+        padding: 18px;
+    }
+
+    .projet > summary .resume-projet {
+        min-height: 0;
+        padding: 0;
+    }
+
+    .projet > summary .titre-projet {
+        font-size: 20px;
+    }
+
+    .projet > summary .type-projet {
+        font-size: 12px;
+    }
+
+    .projet > summary .icone-projet {
+        flex-basis: 36px;
+        width: 36px;
+        height: 36px;
+        font-size: 23px;
+    }
+
+    .lightbox {
+        padding: 50px 38px 10px;
+    }
+
+    .lightbox-fermer {
+        top: 3px;
+        right: 5px;
+        font-size: 38px;
+    }
+
+    .lightbox-precedent,
+    .lightbox-suivant {
+        padding: 5px;
+        font-size: 30px;
+    }
+
+    .lightbox-precedent {
+        left: 1px;
+    }
+
+    .lightbox-suivant {
+        right: 1px;
+    }
+
+    .controles-zoom {
+        gap: 6px;
+        margin-top: 8px;
+    }
+
+    .controles-zoom button {
+        min-width: 36px;
+        min-height: 34px;
+        padding: 5px 8px;
+        font-size: 13px;
+    }
+
+    #niveau-zoom {
+        min-width: 52px;
+        font-size: 12px;
+    }
+
+    #lightbox-description {
+        max-height: 12vh;
+        margin-top: 7px;
+        font-size: 12px;
+        line-height: 1.35;
     }
 }

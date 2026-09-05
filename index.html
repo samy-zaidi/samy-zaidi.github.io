@@ -3,7 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Portfolio de Samy Zaidi, étudiant en génie mécanique."
+    >
 
     <title>Samy Zaidi | Portfolio</title>
 
@@ -11,178 +20,782 @@
 </head>
 
 <body>
-    <nav>
-    <a href="#apropos">À propos</a>
-    <a href="#projets">Projets</a>
-    <a href="#competences">Compétences</a>
-    <a href="#contact">Contact</a>
+
+    <!-- Navigation -->
+
+    <nav aria-label="Navigation principale">
+        <a href="#apropos">À propos</a>
+        <a href="#projets">Projets</a>
+        <a href="#competences">Compétences</a>
+        <a href="#contact">Contact</a>
     </nav>
+
+
+    <!-- Introduction -->
+
     <header>
         <h1>Samy Zaidi</h1>
         <p>Étudiant en génie mécanique</p>
     </header>
 
-        <main>
-            <section id="apropos">
-        <h2>À propos de moi</h2>
-        <p>
-            Je suis étudiant en génie mécanique et je m’intéresse à la
-            conception, au développement de produits et à l’innovation.
-            Mes principaux centres d’intérêt comprennent les exosquelettes
-            hybrides, les moteurs à combustion interne ainsi que les
-            matériaux métalliques et leurs alliages.
-        </p>
+
+    <main>
+
+        <!-- À propos -->
+
+        <section id="apropos">
+            <h2>À propos de moi</h2>
+
+            <p>
+                Je suis étudiant en génie mécanique et je m’intéresse
+                à la conception, au développement de produits et à
+                l’innovation. Mes principaux centres d’intérêt comprennent
+                les exosquelettes hybrides, les moteurs à combustion
+                interne ainsi que les matériaux métalliques et leurs
+                alliages.
+            </p>
         </section>
 
-    <section id="projets">
-        <h2>Mes projets</h2>
 
-        <article class="projet">
-            <h3>Daedalus HES (Hybrid Exoskeleton System)</h3>
+        <!-- Projets -->
 
-            <p class="type-projet">
-                Projet personnel — En développement
-            </p>
+        <section id="projets">
+            <h2>Mes projets</h2>
 
-            <h4>Le problème</h4>
 
-            <p>
-                J’ai lancé le projet Daedalus HES avec l’objectif de concevoir un
-                système capable d’aider une personne à soulever ou à maintenir une
-                charge lourde, tout en réduisant l’effort physique et le risque de
-                blessure.
-            </p>
+            <!-- Projet Daedalus -->
 
-            <p>
-                Un exosquelette passif est généralement simple et peu énergivore,
-                mais son niveau d’assistance reste limité. Il doit également être
-                adapté à la morphologie et aux mouvements de chaque utilisateur.
-            </p>
+            <details class="projet">
+                <summary>
+                    <span class="resume-projet">
+                        <span class="titre-projet">
+                            Daedalus HES
+                        </span>
 
-            <p>
-                À l’inverse, un système entièrement motorisé peut fournir une
-                assistance plus importante, mais il consomme davantage d’énergie.
-                Les moteurs et les batteries augmentent également la masse et
-                l’encombrement du système.
-            </p>
+                        <span class="type-projet">
+                            Hybrid Exoskeleton System —
+                            Projet personnel en développement
+                        </span>
+                    </span>
 
-            <p>
-                Mon objectif est donc de développer une architecture hybride qui
-                combine les avantages de ces deux approches. Le système devra être
-                compact, sécuritaire et capable de fournir une assistance seulement
-                lorsqu’elle est nécessaire.
-            </p>
+                    <span
+                        class="icone-projet"
+                        aria-hidden="true"
+                    ></span>
+                </summary>
 
-            <h4>Ma contribution</h4>
+                <div class="contenu-projet">
 
-            <p>
-                Daedalus HES est un projet personnel que je développe seul. Je suis
-                donc responsable de toutes les étapes de sa conception, depuis la
-                définition des besoins jusqu’à la préparation du prototype.
-            </p>
+                    <h4>Le problème</h4>
 
-            <p>
-                J’ai commencé par comparer plusieurs architectures d’exosquelettes
-                et différentes méthodes permettant de transmettre un effort au bras.
-                Je réalise également les calculs de forces et de couples nécessaires
-                au dimensionnement du mécanisme.
-            </p>
+                    <p>
+                        J’ai lancé le projet Daedalus HES avec l’objectif
+                        de concevoir un système capable d’aider une personne
+                        à soulever ou à maintenir une charge lourde, tout
+                        en réduisant l’effort physique et le risque de
+                        blessure.
+                    </p>
 
-            <p>
-                J’étudie actuellement une solution utilisant un ressort pour
-                emmagasiner de l’énergie ainsi qu’un moteur pour contrôler
-                l’activation du mécanisme. Les prochaines étapes seront de terminer
-                la modélisation CAO, de fabriquer un premier prototype et de mesurer
-                expérimentalement l’assistance obtenue.
-            </p>
+                    <p>
+                        Un exosquelette passif est généralement simple et
+                        peu énergivore, mais son niveau d’assistance reste
+                        limité. Il doit également être adapté à la
+                        morphologie et aux mouvements de chaque utilisateur.
+                    </p>
 
-            <h4>Outils et méthodes utilisés</h4>
+                    <p>
+                        À l’inverse, un système entièrement motorisé peut
+                        fournir une assistance plus importante, mais il
+                        consomme davantage d’énergie. Les moteurs et les
+                        batteries augmentent également la masse et
+                        l’encombrement du système.
+                    </p>
 
-            <ul>
-                <li>Modélisation CAO — FreeCAD</li>
-                <li>Résistance des matériaux et dimensionnement mécanique</li>
-                <li>Analyse par éléments finis — FreeCAD FEM et CalculiX</li>
-                <li>Optimisation topologique — FreeCAD</li>
-            </ul>
+                    <p>
+                        Mon objectif est donc de développer une architecture
+                        hybride qui combine les avantages de ces deux
+                        approches. Le système devra être compact, sécuritaire
+                        et capable de fournir une assistance seulement
+                        lorsqu’elle est nécessaire.
+                    </p>
 
-            <figure class="image-projet">
-                <img
-                    src="images/daedalus-concept.png"
-                    alt="Rendu conceptuel de l’exosquelette hybride Daedalus HES"
-                >
 
-                <figcaption>
-                    Rendu conceptuel généré par IA d’un prototype potentiel de Daedalus HES.
-                    La conception mécanique par CAO est actuellement en développement.
-                </figcaption>
-            </figure>
-        </article>
-    </section>
+                    <h4>Ma contribution</h4>
 
-<section id="competences">
-    <h2>Mes compétences</h2>
+                    <p>
+                        Daedalus HES est un projet personnel que je développe
+                        seul. Je suis donc responsable de toutes les étapes
+                        de sa conception, depuis la définition des besoins
+                        jusqu’à la préparation du prototype.
+                    </p>
 
-    <div class="grille-competences">
-        <article class="competence">
-            <h3>Conception mécanique</h3>
-            <ul>
-                <li>Modélisation CAO</li>
-                <li>Mise en plan</li>
-                <li>Choix des matériaux</li>
-                <li>Conception pour la fabrication</li>
-                <li>Industialisation de produits</li>
-                <li>Élements de machines</li>
-                <li>Élements d'électronique et d'électrotechnique</li>
-            </ul>
-        </article>
+                    <p>
+                        J’ai commencé par comparer plusieurs architectures
+                        d’exosquelettes et différentes méthodes permettant
+                        de transmettre un effort au bras. Je réalise également
+                        les calculs de forces et de couples nécessaires au
+                        dimensionnement du mécanisme.
+                    </p>
 
-        <article class="competence">
-            <h3>Analyse et simulation</h3>
-            <ul>
-                <li>Résistance des matériaux</li>
-                <li>Éléments finis</li>
-                <li>Thermodynamique</li>
-                <li>Acquisition et traitement de données numériques</li>
-            </ul>
-        </article>
+                    <p>
+                        J’étudie actuellement une solution utilisant un
+                        ressort pour emmagasiner de l’énergie ainsi qu’un
+                        moteur pour contrôler l’activation du mécanisme.
+                        Les prochaines étapes seront de terminer la
+                        modélisation CAO, de fabriquer un premier prototype
+                        et de mesurer expérimentalement l’assistance obtenue.
+                    </p>
 
-        <article class="competence">
-            <h3>Logiciels</h3>
-            <ul>
-                <li>FreeCAD</li>
-                <li>Simcenter 3D et NX Nastran</li>
-                <li>CalculiX</li>
-                <li>EES et LabVIEW</li>
-                <li>3D EXPERIENCE</li>
-                <li>Catia V5</li>
-                <li>Spyder 6</li>
-                <li>Suite Office 365</li>
-            </ul>
-        </article>
 
-        <article class="competence">
-            <h3>Programmation et prototypage</h3>
-            <ul>
-                <li>Python</li>
-                <li>VBA (pour macros Excel)</li>
-                <li>C++ - ESP32 et Arduino</li>
-                <li>Impression 3D</li>
-                <li>Utilisation de drivers pour moteurs triphasés</li>
-            </ul>
-        </article>
-    </div>
-</section>
+                    <h4>Outils et méthodes utilisés</h4>
+
+                    <ul>
+                        <li>Modélisation CAO — FreeCAD</li>
+
+                        <li>
+                            Résistance des matériaux et dimensionnement
+                            mécanique
+                        </li>
+
+                        <li>
+                            Analyse par éléments finis —
+                            FreeCAD FEM et CalculiX
+                        </li>
+
+                        <li>
+                            Optimisation topologique — FreeCAD
+                        </li>
+                    </ul>
+
+
+                    <div class="galerie-projet galerie-unique">
+                        <figure class="image-projet">
+                            <button
+                                class="bouton-image"
+                                type="button"
+                                aria-label="Agrandir le concept de Daedalus HES"
+                            >
+                                <img
+                                    class="image-contain"
+                                    src="images/daedalus-concept.png"
+                                    alt="Rendu conceptuel de l’exosquelette hybride Daedalus HES"
+                                >
+                            </button>
+
+                            <figcaption>
+                                Rendu conceptuel généré par intelligence artificielle
+                                d’un prototype potentiel de Daedalus HES. La conception
+                                mécanique par CAO est actuellement en développement.
+                            </figcaption>
+                        </figure>
+                    </div>
+            </details>
+
+            <!-- Projet Esteban -->
+
+            <details class="projet">
+                <summary>
+                    <span class="resume-projet">
+                        <span class="titre-projet">
+                            Projet Esteban — Esteban 12
+                        </span>
+
+                        <span class="type-projet">
+                            Équipe mécanique | 2024–2026
+                        </span>
+                    </span>
+
+                    <span
+                        class="icone-projet"
+                        aria-hidden="true"
+                    ></span>
+                </summary>
+
+                <div class="contenu-projet">
+
+                    <h4>Le projet</h4>
+
+                    <p>
+                        Esteban est le projet de voiture solaire de Polytechnique Montréal. 
+                        Entièrement développée par des étudiants, la voiture réunit des systèmes 
+                        mécaniques, électriques et électroniques qui doivent fonctionner ensemble 
+                        dans un espace et une masse très limités.
+                    </p>
+
+                    <p>
+                        Pour moi, Esteban a été l’occasion de passer des notions vues en cours à un 
+                        véritable projet d’ingénierie. Sur Esteban 12, chaque pièce devait être légère, 
+                        fiable, sécuritaire et compatible avec le reste du véhicule. Une modification 
+                        qui semblait mineure pouvait avoir des conséquences sur plusieurs autres systèmes.
+                    </p>
+
+
+                    <h4>Ma contribution</h4>
+
+                    <p>
+                        J’ai fait partie de l’équipe mécanique d’Esteban de 2024 à 2026. 
+                        Au cours de ces deux années, j’ai participé au développement de 
+                        trois éléments d’Esteban 12 : le frein de stationnement, le bras longitudinal 
+                        de suspension (<em>trailing arm</em>) et la biellette de direction (<em>drag rod</em>).
+                    </p>
+
+                    <p>
+                        Mon travail ne consistait pas seulement à modéliser des pièces. Je devais 
+                        comprendre leur fonction, considérer les efforts auxquels elles seraient 
+                        soumises et vérifier qu’elles pourraient être fabriquées, assemblées et 
+                        intégrées au véhicule.
+                    </p>
+
+                    <p>
+                        Ces différents mandats m’ont permis de suivre plusieurs étapes du 
+                        développement mécanique, depuis l’étude du problème jusqu’à l’analyse et 
+                        à l’intégration de la solution retenue.
+                    </p>
+
+
+                    <h4>Travaux réalisés sur Esteban 12</h4>
+
+
+                    <!-- Frein de stationnement -->
+
+                    <div class="sous-projet">
+                        <h5>Frein de stationnement - 2024</h5>
+
+                        <p>
+                        Le frein de stationnement a été l’un de mes premiers mandats sur Esteban 12. 
+                        J’ai participé au choix du mécanisme et à son intégration dans le véhicule. 
+                        Pour faciliter son dimensionnement, j’ai également développé un programme 
+                        Python permettant de calculer automatiquement plusieurs paramètres importants 
+                        à partir des données du système.
+                        </p>
+                        <p>
+                        Ce travail m’a demandé de consulter la documentation du fabricant, de comparer 
+                        les solutions possibles et de traduire les exigences du mécanisme en une géométrie 
+                        pouvant être intégrée au véhicule.
+                        </p>
+
+                    <div class="document-projet">
+                        <div class="icone-document" aria-hidden="true">
+                            PDF
+                        </div>
+
+                        <div class="informations-document">
+                            <h6>
+                                Fiche technique du frein de stationnement
+                            </h6>
+
+                            <p>
+                            Documentation publique fournie par le fabricant et utilisée 
+                            pour comprendre les caractéristiques du mécanisme et orienter 
+                            son intégration dans Esteban 12.
+                            </p>
+
+                            <div class="actions-document">
+                                <a
+                                    href="documents/pb-pdf.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Consulter le document
+                                </a>
+
+                                <a
+                                    href="documents/pb-pdf.pdf"
+                                    download
+                                >
+                                    Télécharger le PDF
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="galerie-projet">
+
+                            <figure>
+                                <button
+                                    class="bouton-image"
+                                    type="button"
+                                    aria-label="Agrandir le programme de calcul Python"
+                                >
+                                    <img
+                                        class="image-contain"
+                                        src="images/programme-calculateur-python.png"
+                                        alt="Programme Python de calcul des paramètres du frein"
+                                    >
+                                </button>
+
+                                <figcaption>
+                                Programme Python développé pour automatiser le 
+                                calcul des principaux paramètres du mécanisme.
+                                </figcaption>
+                            </figure>
+
+
+                            <figure>
+                                <button
+                                    class="bouton-image"
+                                    type="button"
+                                    aria-label="Agrandir la modélisation CAO du frein"
+                                >
+                                    <img
+                                        class="image-contain"
+                                        src="images/solution-retenu-pb.png"
+                                        alt="Modélisation CAO du frein de stationnement"
+                                    >
+                                </button>
+
+                                <figcaption>
+                                Solution retenue pour l’intégration 
+                                du frein de stationnement.
+                                </figcaption>
+                            </figure>
+
+
+                            <figure>
+                                <button
+                                    class="bouton-image"
+                                    type="button"
+                                    aria-label="Agrandir le frein fabriqué"
+                                >
+                                    <img
+                                        class="image-cover"
+                                        src="images/documentation-pb.png"
+                                        alt="Frein de stationnement après sa fabrication"
+                                    >
+                                </button>
+
+                                <figcaption>
+                                Documentation technique utilisée pendant 
+                                la sélection et le dimensionnement du mécanisme.
+                                </figcaption>
+                            </figure>
+
+                        </div>
+                    </div>
+
+
+                    <!-- Bras longitudinal -->
+
+                    <div class="sous-projet">
+                        <h5>Bras longitudinal de suspension - 2025</h5>
+
+                        <p>
+                        En 2025, j’ai participé au développement du bras longitudinal de suspension, 
+                        aussi appelé <em>trailing arm</em>. Cette pièce relie la roue à la structure 
+                        du véhicule et doit transmettre les efforts de la suspension tout en limitant 
+                        sa propre masse.
+                        </p>
+                        <p>
+                        J’ai travaillé sur sa géométrie, son analyse mécanique et son évolution vers 
+                        une pièce fabricable. Ce mandat m’a permis de mieux comprendre le lien entre 
+                        les résultats d’une simulation, la forme d’une pièce et les contraintes réelles 
+                        de fabrication.
+                        </p>
+
+                        <div class="galerie-projet">
+
+                            <figure>
+                                <button
+                                    class="bouton-image"
+                                    type="button"
+                                    aria-label="Agrandir la CAO du bras longitudinal"
+                                >
+                                    <img
+                                        class="image-cover"
+                                        src="images/trailing-arm-cao.png"
+                                        alt="Modélisation CAO du bras longitudinal"
+                                    >
+                                </button>
+
+                                <figcaption>
+                                Modélisation CAO du bras longitudinal et 
+                                de ses interfaces avec la suspension.
+                                </figcaption>
+                            </figure>
+
+
+                            <figure>
+                                <button
+                                    class="bouton-image"
+                                    type="button"
+                                    aria-label="Agrandir l’analyse du bras longitudinal"
+                                >
+                                    <img
+                                        class="image-contain"
+                                        src="images/trailing-arm-analyse.png"
+                                        alt="Analyse mécanique du bras longitudinal"
+                                    >
+                                </button>
+
+                                <figcaption>
+                                Analyse mécanique utilisée pour évaluer 
+                                le comportement du composant sous charge.
+                                </figcaption>
+                            </figure>
+
+
+                            <figure>
+                                <button
+                                    class="bouton-image"
+                                    type="button"
+                                    aria-label="Agrandir le bras longitudinal fabriqué"
+                                >
+                                    <img
+                                        class="image-cover"
+                                        src="images/trailing-arm-fabrication.jpg"
+                                        alt="Bras longitudinal fabriqué pour Esteban 12"
+                                    >
+                                </button>
+
+                                <figcaption>
+                                Bras longitudinal fabriqué pour 
+                                son intégration à Esteban 12.
+                                </figcaption>
+                            </figure>
+
+                        </div>
+                    </div>
+
+
+                    <!-- Biellette de direction -->
+
+                    <div class="sous-projet">
+                        <h5>Biellette de direction - 2026</h5>
+
+                        <p>
+                        En 2026, j’ai travaillé sur la biellette de direction, ou <em>drag rod</em>, 
+                        ainsi que sur son support. Ce système transmet le mouvement de la 
+                        direction jusqu’aux roues et joue donc un rôle direct dans le contrôle 
+                        du véhicule.
+                        </p>
+                        <p>
+                        J’ai participé à la conception de la biellette, au développement de son 
+                        support et à l’analyse du comportement mécanique de l’ensemble. L’objectif était 
+                        d’obtenir une solution suffisamment rigide et fiable, tout en respectant les 
+                        contraintes géométriques du véhicule.
+                        </p>
+
+                        <div class="galerie-projet">
+
+                            <figure>
+                                <button
+                                    class="bouton-image"
+                                    type="button"
+                                    aria-label="Agrandir la CAO de la biellette"
+                                >
+                                    <img
+                                        class="image-cover"
+                                        src="images/drag-rod-cao.png"
+                                        alt="Modélisation CAO de la biellette de direction"
+                                    >
+                                </button>
+
+                                <figcaption>
+                                Modélisation CAO de la 
+                                biellette de direction.
+                                </figcaption>
+                            </figure>
+
+
+                            <figure>
+                                <button
+                                    class="bouton-image"
+                                    type="button"
+                                    aria-label="Agrandir le support de la biellette"
+                                >
+                                    <img
+                                        class="image-cover"
+                                        src="images/bracket-drag-rod.png"
+                                        alt="Support mécanique de la biellette de direction"
+                                    >
+                                </button>
+
+                                <figcaption>
+                                Développement du support reliant 
+                                la biellette au système de direction.
+                                </figcaption>
+                            </figure>
+
+
+                            <figure>
+                                <button
+                                    class="bouton-image"
+                                    type="button"
+                                    aria-label="Agrandir l’analyse de la biellette"
+                                >
+                                    <img
+                                        class="image-contain"
+                                        src="images/drag-rod-analyse.png"
+                                        alt="Analyse mécanique de la biellette de direction"
+                                    >
+                                </button>
+
+                                <figcaption>
+                                Analyse mécanique de la biellette et 
+                                de son comportement sous charge.
+                                </figcaption>
+                            </figure>
+
+                        </div>
+                    </div>
+
+
+                    <h4>Travail d’équipe et apprentissages</h4>
+
+                    <p>
+                        Travailler sur Esteban m’a amené à collaborer avec des étudiants
+                        provenant de plusieurs domaines du génie. Une décision prise par
+                        l’équipe mécanique pouvait influencer l’espace disponible pour les
+                        batteries, le câblage, les capteurs ou d’autres composants électriques.
+                    </p>
+
+                    <p>
+                        Cette expérience m’a appris à considérer chaque pièce comme une
+                        partie d’un système complet. J’ai également appris à présenter mes
+                        choix techniques, à écouter les commentaires de mes coéquipiers et
+                        à adapter une conception lorsqu’elle créait une contrainte pour une
+                        autre partie du véhicule.
+                    </p>
+
+                    <p>
+                        Au-delà des connaissances techniques, Esteban m’a montré l’importance
+                        de la communication et du travail collectif dans la réussite d’un
+                        projet d’ingénierie de grande envergure.
+                    </p>
+
+                    <h4>Compétences développées</h4>
+
+                    <ul>
+                        <li>
+                            Passer d’un besoin fonctionnel à une solution mécanique intégrable
+                        </li>
+
+                        <li>
+                            Utiliser les calculs et la simulation pour orienter une conception
+                        </li>
+
+                        <li>
+                            Adapter une pièce aux contraintes de fabrication et d’assemblage
+                        </li>
+
+                        <li>
+                            Intégrer plusieurs composants dans un système mécanique complet
+                        </li>
+
+                        <li>
+                            Communiquer et collaborer avec les équipes mécanique et électrique
+                        </li>
+
+                        <li>
+                            Documenter et présenter des décisions techniques
+                        </li>
+                    </ul>
+
+                    <p>
+                        <a
+                            class="lien-projet"
+                            href="https://esteban.polymtl.ca/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Découvrir le projet Esteban ↗
+                        </a>
+                    </p>
+
+                </div>
+            </details>
+
+        </section>
+
+
+        <!-- Compétences -->
+
+        <section id="competences">
+            <h2>Mes compétences</h2>
+
+            <div class="grille-competences">
+
+                <article class="competence">
+                    <h3>Conception mécanique</h3>
+
+                    <ul>
+                        <li>Modélisation CAO</li>
+                        <li>Mise en plan</li>
+                        <li>Choix des matériaux</li>
+                        <li>Conception pour la fabrication</li>
+                        <li>Industrialisation de produits</li>
+                        <li>Éléments de machines</li>
+
+                        <li>
+                            Notions d’électronique et
+                            d’électrotechnique
+                        </li>
+                    </ul>
+                </article>
+
+
+                <article class="competence">
+                    <h3>Analyse et simulation</h3>
+
+                    <ul>
+                        <li>Résistance des matériaux</li>
+                        <li>Éléments finis</li>
+                        <li>Thermodynamique</li>
+
+                        <li>
+                            Acquisition et traitement de
+                            données numériques
+                        </li>
+                    </ul>
+                </article>
+
+
+                <article class="competence">
+                    <h3>Logiciels</h3>
+
+                    <ul>
+                        <li>FreeCAD</li>
+                        <li>Simcenter 3D et NX Nastran</li>
+                        <li>CalculiX</li>
+                        <li>EES et LabVIEW</li>
+                        <li>3DEXPERIENCE</li>
+                        <li>CATIA V5</li>
+                        <li>Spyder 6</li>
+                        <li>Suite Microsoft 365</li>
+                    </ul>
+                </article>
+
+
+                <article class="competence">
+                    <h3>Programmation et prototypage</h3>
+
+                    <ul>
+                        <li>Python</li>
+                        <li>VBA pour les macros Excel</li>
+                        <li>C++ avec ESP32 et Arduino</li>
+                        <li>Impression 3D</li>
+
+                        <li>
+                            Utilisation de contrôleurs pour
+                            moteurs triphasés
+                        </li>
+                    </ul>
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- Contact -->
 
         <section id="contact">
             <h2>Me contacter</h2>
+
             <p>
                 Courriel :
                 <a href="mailto:samyzaidi04@gmail.com">
                     samyzaidi04@gmail.com
                 </a>
             </p>
+
+            <p>
+                GitHub :
+                <a
+                    href="https://github.com/samy-zaidi"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Voir mon profil GitHub ↗
+                </a>
+            </p>
         </section>
     </main>
+
+
+    <!-- Fenêtre d’agrandissement des images -->
+
+    <div
+        class="lightbox"
+        id="lightbox"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Aperçu de la galerie"
+        aria-hidden="true"
+    >
+        <button
+            class="lightbox-fermer"
+            type="button"
+            aria-label="Fermer l’image"
+        >
+            &times;
+        </button>
+
+        <button
+            class="lightbox-precedent"
+            type="button"
+            aria-label="Afficher l’image précédente"
+        >
+            &#10094;
+        </button>
+
+<div class="lightbox-contenu">
+    <div class="zone-image-lightbox">
+        <img
+            id="lightbox-image"
+            src=""
+            alt=""
+            draggable="false"
+        >
+    </div>
+
+    <div
+        class="controles-zoom"
+        aria-label="Contrôles du zoom"
+    >
+        <button
+            id="zoom-moins"
+            type="button"
+            aria-label="Réduire l’image"
+        >
+            −
+        </button>
+
+        <span id="niveau-zoom">
+            100 %
+        </span>
+
+        <button
+            id="zoom-plus"
+            type="button"
+            aria-label="Agrandir l’image"
+        >
+            +
+        </button>
+
+        <button
+            id="zoom-reinitialiser"
+            type="button"
+        >
+            Réinitialiser
+        </button>
+    </div>
+
+    <p id="lightbox-description"></p>
+</div>
+
+        <button
+            class="lightbox-suivant"
+            type="button"
+            aria-label="Afficher l’image suivante"
+        >
+            &#10095;
+        </button>
+    </div>
+
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+
 </body>
 
 </html>
