@@ -236,6 +236,32 @@ function ouvrirLightbox(boutonsGalerie, numero) {
     boutonFermer.focus();
 }
 
+/* Fermer la lightbox */
+
+function fermerLightbox() {
+    /*
+       Réinitialiser pendant que la lightbox est encore
+       visible permet de conserver des dimensions valides.
+    */
+
+    reinitialiserZoom();
+
+    lightbox.classList.remove("ouverte");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("lightbox-active");
+
+    imageLightbox.src = "";
+    imageLightbox.alt = "";
+    descriptionLightbox.textContent = "";
+
+    imagesGalerieActive = [];
+    imageActuelle = 0;
+
+    if (dernierBoutonSelectionne) {
+        dernierBoutonSelectionne.focus();
+    }
+}
+
 /* Navigation */
 
 function afficherImagePrecedente() {
