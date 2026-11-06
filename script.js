@@ -496,3 +496,129 @@ document.addEventListener("keydown", (evenement) => {
         reinitialiserZoom();
     }
 });
+
+/* =========================================================
+   NAVIGATION, MENU MOBILE ET ANIMATIONS
+   ========================================================= */
+
+const barre = document.querySelector("#barre");
+const navigation = document.querySelector("#navigation");
+const boutonMenu = document.querySelector("#bouton-menu");
+const liensNavigation = navigation.querySelectorAll('a[href^="#"]');
+
+
+/* Barre de navigation au défilement */
+
+function mettreAJourBarre() {
+    barre.classList.toggle("defilee", window.scrollY > 24);
+}
+
+mettreAJourBarre();
+window.addEventListener("scroll", mettreAJourBarre, { passive: true });
+
+
+/* Menu mobile */
+
+function basculerMenu(ouvrir) {
+    navigation.classList.toggle("ouverte", ouvrir);
+    barre.classList.toggle("menu-actif", ouvrir);
+    document.body.classList.toggle("menu-ouvert", ouvrir);
+    boutonMenu.setAttribute("aria-expanded", String(ouvrir));
+    boutonMenu.setAttribute(
+        "aria-label",
+        ouvrir ? "Fermer le menu" : "Ouvrir le menu"
+    );
+}
+
+boutonMenu.addEventListener("click", () => {
+    basculerMenu(!navigation.classList.contains("ouverte"));
+});
+
+navigation.querySelectorAll("a").forEach((lien) => {
+    lien.addEventListener("click", () => basculerMenu(false));
+});
+
+document.addEventListener("keydown", (evenement) => {
+    if (
+        evenement.key === "Escape" &&
+        navigation.classList.contains("ouverte")
+    ) {
+        basculerMenu(false);
+        boutonMenu.focus();
+    }
+});
+
+window.matchMedia("(min-width: 821px)").addEventListener("change", (requete) => {
+    if (requete.matches) {
+        basculerMenu(false);
+    }
+});
+
+
+/* Lien actif selon la section visible */
+
+const sectionsSuivies = Array.from(liensNavigation)
+    .map((lien) => document.querySelector(lien.getAttribute("href")))
+    .filter(Boolean);
+
+if ("IntersectionObserver" in window) {
+    const observateurSections = new IntersectionObserver(
+        (entrees) => {
+            entrees.forEach((entree) => {
+                if (!entree.isIntersecting) {
+                    return;
+                }
+
+                liensNavigation.forEach((lien) => {
+                    lien.classList.toggle(
+                        "actif",
+                        lien.getAttribute("href") === `#${entree.target.id}`
+                    );
+                });
+            });
+        },
+        { rootMargin: "-45% 0px -50% 0px" }
+    );
+
+    sectionsSuivies.forEach((section) => observateurSections.observe(section));
+}
+
+
+/* Apparition progressive au défilement */
+
+const elementsReveal = document.querySelectorAll(".reveal");
+
+elementsReveal.forEach((element) => {
+    const freres = Array.from(element.parentElement.children)
+        .filter((enfant) => enfant.classList.contains("reveal"));
+    const position = freres.indexOf(element);
+
+    element.style.setProperty("--delai", `${Math.min(position, 5) * 0.08}s`);
+});
+
+if ("IntersectionObserver" in window) {
+    const observateurReveal = new IntersectionObserver(
+        (entrees, observateur) => {
+            entrees.forEach((entree) => {
+                if (entree.isIntersecting) {
+                    entree.target.classList.add("visible");
+                    observateur.unobserve(entree.target);
+                }
+            });
+        },
+        { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+    );
+
+    elementsReveal.forEach((element) => observateurReveal.observe(element));
+} else {
+    elementsReveal.forEach((element) => element.classList.add("visible"));
+}
+
+
+/* Année du pied de page */
+
+const annee = document.querySelector("#annee");
+
+if (annee) {
+    annee.textContent = new Date().getFullYear();
+}
