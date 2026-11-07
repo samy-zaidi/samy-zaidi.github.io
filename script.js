@@ -1,4 +1,6 @@
-const galeries = document.querySelectorAll(".galerie-projet");
+const galeries = document.querySelectorAll(
+    ".galerie-projet:not(.galerie-detail), .detail"
+);
 
 const lightbox = document.querySelector("#lightbox");
 const imageLightbox = document.querySelector("#lightbox-image");
@@ -524,9 +526,12 @@ function basculerMenu(ouvrir) {
     barre.classList.toggle("menu-actif", ouvrir);
     document.body.classList.toggle("menu-ouvert", ouvrir);
     boutonMenu.setAttribute("aria-expanded", String(ouvrir));
+    const anglais = document.documentElement.lang === "en";
     boutonMenu.setAttribute(
         "aria-label",
-        ouvrir ? "Fermer le menu" : "Ouvrir le menu"
+        ouvrir
+            ? (anglais ? "Close the menu" : "Fermer le menu")
+            : (anglais ? "Open the menu" : "Ouvrir le menu")
     );
 }
 
@@ -621,4 +626,160 @@ const annee = document.querySelector("#annee");
 
 if (annee) {
     annee.textContent = new Date().getFullYear();
+}
+
+
+/* =========================================================
+   PANNEAU DE DÉTAIL DES HOBBYS
+   ========================================================= */
+
+const panneau = document.querySelector("#panneau");
+const mouvementReduit = window.matchMedia("(prefers-reduced-motion: reduce)");
+let declencheurPanneau = null;
+
+function lancerVideos(conteneur) {
+    conteneur.querySelectorAll("video").forEach((video) => {
+        if (mouvementReduit.matches) {
+            video.controls = true;
+            return;
+        }
+        video.play().catch(() => {
+            video.controls = true;
+        });
+    });
+}
+
+function arreterVideos(conteneur) {
+    conteneur.querySelectorAll("video").forEach((video) => video.pause());
+}
+
+function ouvrirPanneau(idDetail, declencheur) {
+    const detail = document.getElementById(idDetail);
+    if (!panneau || !detail) {
+        return;
+    }
+
+    panneau.querySelectorAll(".detail").forEach((element) => {
+        element.hidden = element !== detail;
+    });
+
+    const titre = detail.querySelector("h2");
+    if (titre) {
+        panneau.setAttribute("aria-labelledby", titre.id);
+    }
+
+    declencheurPanneau = declencheur || null;
+    panneau.classList.add("ouvert");
+    panneau.setAttribute("aria-hidden", "false");
+    document.body.classList.add("panneau-actif");
+
+    const feuille = panneau.querySelector(".panneau-feuille");
+    feuille.scrollTop = 0;
+    feuille.focus({ preventScroll: true });
+
+    lancerVideos(detail);
+    history.replaceState(null, "", "#" + idDetail);
+}
+
+function fermerPanneau() {
+    if (!panneau || !panneau.classList.contains("ouvert")) {
+        return;
+    }
+
+    panneau.classList.remove("ouvert");
+    panneau.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("panneau-actif");
+    arreterVideos(panneau);
+    history.replaceState(null, "", "#hobbys");
+
+    if (declencheurPanneau) {
+        declencheurPanneau.focus({ preventScroll: true });
+    }
+}
+
+document.querySelectorAll(".hobby-ouvrir").forEach((bouton) => {
+    bouton.addEventListener("click", () => {
+        ouvrirPanneau(bouton.dataset.detail, bouton);
+    });
+});
+
+if (panneau) {
+    panneau.querySelectorAll("[data-fermer]").forEach((element) => {
+        element.addEventListener("click", fermerPanneau);
+    });
+
+    /* Phase de capture : la visionneuse d’images se ferme en premier */
+    window.addEventListener(
+        "keydown",
+        (evenement) => {
+            if (evenement.key !== "Escape" || !panneau.classList.contains("ouvert")) {
+                return;
+            }
+            if (lightbox.classList.contains("ouverte")) {
+                return;
+            }
+            fermerPanneau();
+        },
+        true
+    );
+
+    /* Garder le focus clavier dans le panneau */
+    panneau.addEventListener("keydown", (evenement) => {
+        if (evenement.key !== "Tab" || lightbox.classList.contains("ouverte")) {
+            return;
+        }
+        const focusables = Array.from(
+            panneau.querySelectorAll(
+                ".panneau-fermer, .detail:not([hidden]) a, .detail:not([hidden]) button, .detail:not([hidden]) video[controls]"
+            )
+        );
+        if (focusables.length === 0) {
+            return;
+        }
+        const premier = focusables[0];
+        const dernier = focusables[focusables.length - 1];
+        if (evenement.shiftKey && document.activeElement === premier) {
+            evenement.preventDefault();
+            dernier.focus();
+        } else if (!evenement.shiftKey && document.activeElement === dernier) {
+            evenement.preventDefault();
+            premier.focus();
+        }
+    });
+
+    /* Lien direct vers une fiche : #detail-samengine, etc. */
+    const ancre = location.hash.slice(1);
+    if (ancre.startsWith("detail-") && document.getElementById(ancre)) {
+        const bouton = document.querySelector(`.hobby-ouvrir[data-detail="${ancre}"]`);
+        ouvrirPanneau(ancre, bouton);
+    }
+}
+
+
+/* =========================================================
+   VIDÉOS DES PROJETS : LECTURE QUAND ELLES SONT VISIBLES
+   ========================================================= */
+
+const videosProjets = document.querySelectorAll(".video-projet video");
+
+if (mouvementReduit.matches) {
+    videosProjets.forEach((video) => {
+        video.controls = true;
+    });
+} else if ("IntersectionObserver" in window) {
+    const observateurVideos = new IntersectionObserver(
+        (entrees) => {
+            entrees.forEach((entree) => {
+                if (entree.isIntersecting) {
+                    entree.target.play().catch(() => {
+                        entree.target.controls = true;
+                    });
+                } else {
+                    entree.target.pause();
+                }
+            });
+        },
+        { threshold: 0.35 }
+    );
+    videosProjets.forEach((video) => observateurVideos.observe(video));
 }

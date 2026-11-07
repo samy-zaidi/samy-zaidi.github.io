@@ -9,6 +9,40 @@
 
     <title>Samy Zaidi | Portfolio</title>
 
+    <link rel="canonical" href="https://samy-zaidi.github.io/">
+    <link rel="alternate" hreflang="fr" href="https://samy-zaidi.github.io/">
+    <link rel="alternate" hreflang="en" href="https://samy-zaidi.github.io/en/">
+    <link rel="alternate" hreflang="x-default" href="https://samy-zaidi.github.io/">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_CA">
+    <meta property="og:url" content="https://samy-zaidi.github.io/">
+    <meta property="og:title" content="Samy Zaidi | Portfolio">
+    <meta property="og:description" content="Étudiant en génie mécanique à Polytechnique Montréal — conception, analyse et prototypage.">
+    <meta property="og:image" content="https://samy-zaidi.github.io/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Samy Zaidi",
+        "url": "https://samy-zaidi.github.io/",
+        "jobTitle": "Étudiant en génie mécanique",
+        "email": "mailto:samyzaidi04@gmail.com",
+        "alumniOf": [
+            { "@type": "CollegeOrUniversity", "name": "Polytechnique Montréal" },
+            { "@type": "CollegeOrUniversity", "name": "Collège de Maisonneuve" }
+        ],
+        "knowsLanguage": ["fr", "en", "kab"],
+        "sameAs": ["https://github.com/samy-zaidi"]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -16,7 +50,7 @@
         href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
     >
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=4">
 
     <script>document.documentElement.classList.add("js");</script>
 </head>
@@ -39,7 +73,9 @@
                 <a href="#formation">Formation</a>
                 <a href="#projets">Projets</a>
                 <a href="#competences">Compétences</a>
+                <a href="#hobbys">Hobbys</a>
                 <a href="#contact">Contact</a>
+                <a class="langue" href="en/" hreflang="en" lang="en" aria-label="English version">EN</a>
                 <a class="navigation-cv" href="documents/CV_Samy_Zaidi.pdf" target="_blank" rel="noopener noreferrer">
                     CV <span aria-hidden="true">↗</span>
                 </a>
@@ -652,22 +688,16 @@
                                     </p>
                                 </div>
 
-                                <div class="galerie-projet galerie-unique galerie-large">
-                                    <figure>
-                                        <button class="bouton-image" type="button" aria-label="Agrandir le mécanisme du tripteron">
-                                            <img
-                                                class="image-contain"
-                                                src="images/tripteron-mecanisme.png"
-                                                alt="Mécanisme du tripteron sans châssis : trois actionneurs, bras articulés et plateforme"
-                                                loading="lazy"
-                                            >
-                                        </button>
-                                        <figcaption>
-                                            Le mécanisme seul : trois actionneurs, trois jambes
-                                            articulées (rouge, vert, bleu) et la plateforme porte-outil.
-                                        </figcaption>
-                                    </figure>
-                                </div>
+                                <figure class="video-projet">
+                                    <video muted loop playsinline preload="none" poster="videos/tripteron-mecanisme.jpg" aria-label="Animation du mécanisme du tripteron parcourant le volume de travail">
+                                        <source src="videos/tripteron-mecanisme.mp4" type="video/mp4">
+                                    </video>
+                                    <figcaption>
+                                        Le mécanisme seul en mouvement : chaque moteur commande un axe,
+                                        et les trois jambes (rouge, vert, bleu) suivent la plateforme
+                                        sur tout le volume de travail. Animation générée depuis le modèle FreeCAD.
+                                    </figcaption>
+                                </figure>
                             </article>
 
 
@@ -725,22 +755,15 @@
                                     </p>
                                 </div>
 
-                                <div class="galerie-projet galerie-unique galerie-large">
-                                    <figure>
-                                        <button class="bouton-image" type="button" aria-label="Agrandir l’assemblage complet de la CNC">
-                                            <img
-                                                class="image-contain"
-                                                src="images/tripteron-ensemble.png"
-                                                alt="Assemblage complet de la CNC tripteron dans son châssis en aluminium"
-                                                loading="lazy"
-                                            >
-                                        </button>
-                                        <figcaption>
-                                            Assemblage complet : châssis en aluminium, arrêt
-                                            d’urgence, plateau de bridage et broche.
-                                        </figcaption>
-                                    </figure>
-                                </div>
+                                <figure class="video-projet">
+                                    <video muted loop playsinline preload="none" poster="videos/tripteron-machine.jpg" aria-label="Animation de la CNC tripteron complète en mouvement">
+                                        <source src="videos/tripteron-machine.mp4" type="video/mp4">
+                                    </video>
+                                    <figcaption>
+                                        L’assemblage complet en mouvement : châssis en aluminium,
+                                        arrêt d’urgence, plateau de bridage et broche.
+                                    </figcaption>
+                                </figure>
                             </article>
 
 
@@ -1223,13 +1246,494 @@
         </section>
 
 
+        <!-- Hobbys -->
+
+        <section class="section section-teinte" id="hobbys">
+            <div class="conteneur">
+                <div class="section-entete section-entete-large reveal">
+                    <span class="section-numero">06</span>
+                    <h2>Hobbys</h2>
+                    <p class="section-intro section-intro-claire">
+                        En dehors de la mécanique, je développe des jeux vidéo et des
+                        logiciels. Ces projets me servent de terrain d’expérimentation
+                        en programmation, en modélisation 3D et en conception d’outils.
+                        Cliquez sur un projet pour en voir le détail.
+                    </p>
+                </div>
+
+                <div class="grille-hobbys">
+
+                    <article class="hobby reveal">
+                        <div class="hobby-visuel">
+                            <img src="images/hobby-dichotomy.jpg" alt="Le personnage de Dichotomy court dans un monde écarlate entouré de corps suspendus" loading="lazy">
+                            <span class="hobby-badge">Vidéo</span>
+                        </div>
+                        <div class="hobby-corps">
+                            <p class="hobby-type">Jeu vidéo · Publié</p>
+                            <h3>
+                                <button class="hobby-ouvrir" type="button" data-detail="detail-dichotomy" aria-haspopup="dialog">Dichotomy</button>
+                            </h3>
+                            <p>
+                                Court jeu artistique sans paroles : une silhouette noire traverse
+                                un monde écarlate vers son opposé. Reflets, foule qui imite chaque
+                                mouvement et monde qui se brise. Disponible gratuitement sur Windows.
+                            </p>
+                            <ul class="hobby-tags" aria-label="Technologies">
+                                <li>Godot</li><li>GDScript</li><li>Animation 3D</li>
+                            </ul>
+                            <span class="hobby-plus" aria-hidden="true">Voir le détail <span>→</span></span>
+                        </div>
+                    </article>
+
+                    <article class="hobby reveal">
+                        <div class="hobby-visuel">
+                            <img src="images/hobby-cartographers.jpg" alt="Grande place circulaire aux murs de brique peints, extrait de The Cartographers of Silence" loading="lazy">
+                        </div>
+                        <div class="hobby-corps">
+                            <p class="hobby-type">Jeu vidéo · En développement (v0.9)</p>
+                            <h3>
+                                <button class="hobby-ouvrir" type="button" data-detail="detail-cartographers" aria-haspopup="dialog">The Cartographers of Silence</button>
+                            </h3>
+                            <p>
+                                Jeu d’exploration et d’énigmes à la première personne : 24 lieux reliés par 58 portails dont les destinations changent toutes les 25 minutes. Lieux reconstruits à partir de peintures de référence et interface en carnet de terrain.
+                            </p>
+                            <ul class="hobby-tags" aria-label="Technologies">
+                                <li>Godot 4</li><li>Blender</li><li>GDScript</li><li>Python</li>
+                            </ul>
+                            <span class="hobby-plus" aria-hidden="true">Voir le détail <span>→</span></span>
+                        </div>
+                    </article>
+
+                    <article class="hobby reveal">
+                        <div class="hobby-visuel">
+                            <img src="images/hobby-samengine.jpg" alt="Interface de SamEngine en thème sombre, avec des suggestions comme créer une pièce ou vérifier un calcul" loading="lazy">
+                            <span class="hobby-badge">Vidéo</span>
+                        </div>
+                        <div class="hobby-corps">
+                            <p class="hobby-type">Logiciel · Version 4.2</p>
+                            <h3>
+                                <button class="hobby-ouvrir" type="button" data-detail="detail-samengine" aria-haspopup="dialog">SamEngine</button>
+                            </h3>
+                            <p>
+                                Assistant d’ingénierie qui fonctionne entièrement sur mon
+                                ordinateur, avec des modèles d’IA locaux. Il aide à concevoir
+                                des pièces dans FreeCAD, à vérifier des calculs et à programmer
+                                des jeux, et s’appuie sur une base documentaire technique.
+                            </p>
+                            <ul class="hobby-tags" aria-label="Technologies">
+                                <li>Python</li><li>Ollama</li><li>RAG</li><li>FreeCAD</li>
+                            </ul>
+                            <span class="hobby-plus" aria-hidden="true">Voir le détail <span>→</span></span>
+                        </div>
+                    </article>
+
+                    <article class="hobby reveal">
+                        <div class="hobby-visuel hobby-visuel-os">
+                            <img src="images/hobby-samengineos.jpg" alt="Lanceur de SamEngineOS présentant des tâches d’ingénierie" loading="lazy">
+                        </div>
+                        <div class="hobby-corps">
+                            <p class="hobby-type">Logiciel · Pré-version</p>
+                            <h3>
+                                <button class="hobby-ouvrir" type="button" data-detail="detail-samengineos" aria-haspopup="dialog">SamEngineOS</button>
+                            </h3>
+                            <p>
+                                Porte d’entrée vers l’ingénierie libre sur Ubuntu et Debian.
+                                Il installe des environnements complets (mécanique, électronique,
+                                calcul scientifique) et propose un lanceur orienté tâches :
+                                on choisit « Analyser des contraintes » plutôt qu’un logiciel.
+                            </p>
+                            <ul class="hobby-tags" aria-label="Technologies">
+                                <li>Python</li><li>PySide6</li><li>Linux</li><li>Tests automatisés</li>
+                            </ul>
+                            <span class="hobby-plus" aria-hidden="true">Voir le détail <span>→</span></span>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Panneau de détail des hobbys -->
+
+        <div class="panneau" id="panneau" role="dialog" aria-modal="true" aria-hidden="true">
+            <div class="panneau-fond" data-fermer></div>
+
+            <div class="panneau-feuille" tabindex="-1">
+                <button class="panneau-fermer" type="button" data-fermer aria-label="Fermer le détail">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+                </button>
+
+
+                <!-- Dichotomy -->
+
+                <div class="detail" id="detail-dichotomy" hidden>
+                    <header class="detail-entete">
+                        <p class="hobby-type">Jeu vidéo · Publié</p>
+                        <h2 id="titre-detail-dichotomy">Dichotomy</h2>
+                        <p class="detail-chapeau">
+                            Un court jeu artistique, sans un mot, sur la rencontre avec son opposé.
+                        </p>
+                    </header>
+
+                    <figure class="detail-video">
+                        <video muted loop playsinline preload="none" poster="videos/dichotomy-ouverture.jpg">
+                            <source src="videos/dichotomy-ouverture.mp4" type="video/mp4">
+                        </video>
+                        <figcaption>La cinématique d’ouverture puis la course jusqu’au trou noir, enregistrées dans la version publiée (sans le son).</figcaption>
+                    </figure>
+
+                    <dl class="detail-meta">
+                        <div><dt>Moteur</dt><dd>Godot 4</dd></div>
+                        <div><dt>Plateforme</dt><dd>Windows</dd></div>
+                        <div><dt>Statut</dt><dd>Publié gratuitement sur itch.io</dd></div>
+                        <div><dt>Ressources</dt><dd>Animations Mixamo, musique Pixabay</dd></div>
+                    </dl>
+
+                    <div class="detail-bloc">
+                        <h3>L’expérience</h3>
+                        <p>
+                            Le joueur incarne une silhouette noire sans visage qui traverse un monde
+                            écarlate en direction d’un vide noir. Au bout du chemin l’attend son
+                            opposé. Le jeu ne contient aucun texte : il raconte par la mise en scène,
+                            la lumière et la musique. On y rencontre son reflet, on se perd dans une
+                            foule qui copie chacun de nos gestes, puis tout finit par se briser.
+                        </p>
+                    </div>
+
+                    <div class="detail-bloc">
+                        <h3>Ce que j’ai réalisé</h3>
+                        <ul class="detail-liste">
+                            <li>Les cinématiques, montées avec des pistes d’animation et des changements de caméra, avec la possibilité de les passer.</li>
+                            <li>Le contrôle du personnage : déplacement, course, saut et caméra à la souris.</li>
+                            <li>Un effet de fracture : en tombant dans le vide, le personnage se brise puis se reforme sur le dernier sol stable.</li>
+                            <li>Un menu d’options, dont une résolution 3D ajustable avec mise à l’échelle FSR.</li>
+                            <li>L’export Windows et la publication sur itch.io, avec vérification de l’intégrité du téléchargement.</li>
+                        </ul>
+                    </div>
+
+                    <div class="galerie-projet galerie-detail">
+                        <figure>
+                            <button class="bouton-image" type="button" aria-label="Agrandir l’écran-titre">
+                                <img class="image-cover" src="images/hobbys/dichotomy-menu.jpg" alt="Écran-titre de Dichotomy : silhouette mi-noire mi-blanche et une main tendue vers une sphère noire" loading="lazy">
+                            </button>
+                            <figcaption>L’écran-titre.</figcaption>
+                        </figure>
+                        <figure>
+                            <button class="bouton-image" type="button" aria-label="Agrandir la course">
+                                <img class="image-cover" src="images/hobbys/dichotomy-course.jpg" alt="Le personnage court sur un sol mouillé, entouré de corps suspendus dans l’air" loading="lazy">
+                            </button>
+                            <figcaption>La course au milieu des corps suspendus.</figcaption>
+                        </figure>
+                        <figure>
+                            <button class="bouton-image" type="button" aria-label="Agrandir les éclats">
+                                <img class="image-cover" src="images/hobbys/dichotomy-eclats.jpg" alt="Le personnage se brise en centaines d’éclats près d’un trou noir" loading="lazy">
+                            </button>
+                            <figcaption>L’effet de fracture : le corps se brise en éclats.</figcaption>
+                        </figure>
+                        <figure>
+                            <button class="bouton-image" type="button" aria-label="Agrandir le trou noir">
+                                <img class="image-cover" src="images/hobbys/dichotomy-trou-noir.jpg" alt="Silhouette suspendue devant un trou noir cerclé de rouge" loading="lazy">
+                            </button>
+                            <figcaption>Au bord du trou noir.</figcaption>
+                        </figure>
+                        <figure>
+                            <button class="bouton-image" type="button" aria-label="Agrandir la traversée du vide">
+                                <img class="image-cover" src="images/hobbys/dichotomy-vide.jpg" alt="Silhouette sombre devant un grand cercle noir bordé de rouge" loading="lazy">
+                            </button>
+                            <figcaption>La traversée du vide.</figcaption>
+                        </figure>
+                        <figure>
+                            <button class="bouton-image" type="button" aria-label="Agrandir la foule de clones">
+                                <img class="image-cover" src="images/hobbys/dichotomy-clones.jpg" alt="Une foule de clones blancs entoure le personnage dans le noir" loading="lazy">
+                            </button>
+                            <figcaption>Acte 1 : la foule de clones qui imite chaque geste.</figcaption>
+                        </figure>
+                        <figure>
+                            <button class="bouton-image" type="button" aria-label="Agrandir le monde blanc">
+                                <img class="image-cover" src="images/hobbys/dichotomy-monde-blanc.jpg" alt="Silhouette fracturée, mi-blanche mi-noire, dans un monde entièrement blanc" loading="lazy">
+                            </button>
+                            <figcaption>Le reflet fracturé, dans le monde blanc.</figcaption>
+                        </figure>
+                    </div>
+
+                    <a class="bouton bouton-principal detail-action" href="https://davisgaff.itch.io/dichotomy" target="_blank" rel="noopener noreferrer">
+                        Jouer sur itch.io <span class="bouton-fleche" aria-hidden="true">↗</span>
+                    </a>
+                </div>
+
+
+                <!-- The Cartographers of Silence -->
+
+                <div class="detail" id="detail-cartographers" hidden>
+                    <header class="detail-entete">
+                        <p class="hobby-type">Jeu vidéo · En développement (v0.9)</p>
+                        <h2 id="titre-detail-cartographers">The Cartographers of Silence</h2>
+                        <p class="detail-chapeau">
+                            Une expédition à la première personne dans un monde dont les passages changent de destination pendant que l’on joue.
+                        </p>
+                    </header>
+
+                    <figure class="detail-video">
+                        <video muted loop playsinline preload="none" poster="videos/cartographers-v0930.jpg">
+                            <source src="videos/cartographers-v0930.mp4" type="video/mp4">
+                        </video>
+                        <figcaption>La version 0.9.30 actuelle : l’écran-titre, puis l’arrivée sous un dôme de verre (enregistré dans le jeu, sans le son).</figcaption>
+                    </figure>
+
+                    <dl class="detail-meta">
+                        <div><dt>Moteur</dt><dd>Godot 4.7 (Forward+ et OpenGL)</dd></div>
+                        <div><dt>Version</dt><dd>0.9.30 jouable, GDD 3.48 (276 pages)</dd></div>
+                        <div><dt>Contenu</dt><dd>24 lieux, 58 portails, 7 explorateurs</dd></div>
+                        <div><dt>Outils</dt><dd>Godot, Blender, Python</dd></div>
+                    </dl>
+
+                    <div class="detail-bloc">
+                        <h3>Le concept</h3>
+                        <p>
+                            Sept explorateurs sont dispersés dans 24 lieux impossibles : quartier habité, cultures, pièces noyées, laboratoire des étoiles, archives à gravité modifiée et abris côtiers. Les 58 portails qui les relient changent de partenaire toutes les 25 minutes de jeu actif. Pour rentrer, il faut calibrer un appareil sur trois axes, garder deux chemins valides et rassembler les sept membres. Aucun compteur d’indices : chaque condition est physique.
+                        </p>
+                    </div>
+
+                    <div class="detail-bloc">
+                        <h3>Ce qui a changé en v0.9</h3>
+                        <p>
+                            Après la v0.7, j’ai repris tout le jeu lieu par lieu. Chaque pièce part d’une peinture de référence, d’abord bloquée en 3D (grey-box) et testée à la main, puis détaillée. Le quartier habité (SC2) est le premier lieu entièrement peint, éclairé et détaillé. L’interface a aussi été refaite comme un carnet de terrain : pause, réglages, notes, carte des traversées et conversations.
+                        </p>
+                    </div>
+
+                    <div class="detail-bloc">
+                        <h3>Ce que j’ai réalisé</h3>
+                        <ul class="detail-liste">
+                            <li>Le document de conception (GDD), mis à jour à chaque version : 276 pages en v3.48.</li>
+                            <li>Les 24 lieux reconstruits dans Blender par scripts, à partir de peintures de référence.</li>
+                            <li>Des portails avec une vue en direct de leur destination, en réutilisant au plus trois mondes de rendu.</li>
+                            <li>Une interface en carnet de terrain : carte des traversées, notes, hypothèses et messages des explorateurs.</li>
+                            <li>Un déplacement soigné (nage comprise) et une accessibilité complète : texte jusqu’à 180 %, contraste élevé, commandes réaffectables, manette.</li>
+                            <li>Des milliers de vérifications automatisées : collisions, traversées, interactions et performances.</li>
+                        </ul>
+                    </div>
+
+                    <div class="galerie-projet galerie-detail">
+                        <figure>
+                            <button class="bouton-image" type="button" aria-label="Agrandir la place peinte">
+                                <img class="image-cover" src="images/hobbys/cartographers-place-peinte.jpg" alt="Grande place circulaire aux murs de brique peints, avec des bannières rouges" loading="lazy">
+                            </button>
+                            <figcaption>La place du quartier habité (SC2), le premier lieu entièrement peint.</figcaption>
+                        </figure>
+                        <figure>
+                            <button class="bouton-image" type="button" aria-label="Agrandir la conversation avec Mira">
+                                <img class="image-cover" src="images/hobbys/cartographers-mira.jpg" alt="Mira Sen, cheffe d’expédition, en conversation" loading="lazy">
+                            </button>
+                            <figcaption>Conversation avec Mira Sen, la cheffe d’expédition.</figcaption>
+                        </figure>
+                        <figure>
+                            <button class="bouton-image" type="button" aria-label="Agrandir la carte des traversées">
+                                <img class="image-cover" src="images/hobbys/cartographers-carte.jpg" alt="Carnet de terrain ouvert sur la carte des traversées" loading="lazy">
+                            </button>
+                            <figcaption>Le carnet de terrain : la carte des traversées effectuées.</figcaption>
+                        </figure>
+                        <figure>
+                            <button class="bouton-image" type="button" aria-label="Agrandir Tomas">
+                                <img class="image-cover" src="images/hobbys/cartographers-tomas.jpg" alt="Tomas dans un abri tendu de toile rouge" loading="lazy">
+                            </button>
+                            <figcaption>Tomas, l’un des explorateurs, dans son abri.</figcaption>
+                        </figure>
+                        <figure>
+                            <button class="bouton-image" type="button" aria-label="Agrandir le dôme">
+                                <img class="image-cover" src="images/hobbys/cartographers-dome.jpg" alt="Salle circulaire sous un dôme de verre, avec plantes et portail" loading="lazy">
+                            </button>
+                            <figcaption>L’arrivée sous le dôme de verre (v0.9.30).</figcaption>
+                        </figure>
+                        <figure>
+                            <button class="bouton-image" type="button" aria-label="Agrandir la comparaison peinture et 3D">
+                                <img class="image-cover" src="images/hobbys/cartographers-peinture-3d.jpg" alt="À gauche une peinture de référence, à droite la même pièce bloquée en 3D" loading="lazy">
+                            </button>
+                            <figcaption>La méthode : peinture de référence à gauche, pièce bloquée en 3D à droite.</figcaption>
+                        </figure>
+                        <figure>
+                            <button class="bouton-image" type="button" aria-label="Agrandir la planche des 24 lieux">
+                                <img class="image-cover" src="images/hobbys/cartographers-24-lieux.jpg" alt="Planche des peintures de référence des 24 lieux" loading="lazy">
+                            </button>
+                            <figcaption>Les peintures de référence des 24 lieux (générées par IA), qui guident la modélisation.</figcaption>
+                        </figure>
+                        <figure>
+                            <button class="bouton-image" type="button" aria-label="Agrandir l’illustration du Weft">
+                                <img class="image-cover" src="images/hobbys/cartographers-weft.jpg" alt="Illustration du Weft, un monde d’engrenages et de passerelles flottantes" loading="lazy">
+                            </button>
+                            <figcaption>Le Weft, un monde secondaire au rendu illustré, tiré du GDD.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+
+                <!-- SamEngine -->
+
+                <div class="detail" id="detail-samengine" hidden>
+                    <header class="detail-entete">
+                        <p class="hobby-type">Logiciel · Version 4.2</p>
+                        <h2 id="titre-detail-samengine">SamEngine</h2>
+                        <p class="detail-chapeau">
+                            Un assistant d’ingénierie qui fonctionne entièrement sur mon ordinateur,
+                            sans abonnement et sans envoyer mes fichiers en ligne.
+                        </p>
+                    </header>
+
+                    <figure class="detail-video">
+                        <video muted loop playsinline preload="none" poster="videos/samengine-apercu.jpg">
+                            <source src="videos/samengine-apercu.mp4" type="video/mp4">
+                        </video>
+                        <figcaption>Aperçu de l’interface : accueil, thème sombre, réponse en cours et atelier.</figcaption>
+                    </figure>
+
+                    <dl class="detail-meta">
+                        <div><dt>Langage</dt><dd>Python</dd></div>
+                        <div><dt>Modèles</dt><dd>IA locale avec Ollama</dd></div>
+                        <div><dt>Interface</dt><dd>Application web locale, thèmes clair et sombre</dd></div>
+                        <div><dt>Statut</dt><dd>Version 4.2, en développement</dd></div>
+                    </dl>
+
+                    <div class="detail-bloc">
+                        <h3>Le projet</h3>
+                        <p>
+                            Je voulais un assistant capable de m’aider dans mes projets d’ingénierie
+                            et de programmation tout en restant sur ma machine. SamEngine combine des
+                            modèles de langage locaux, une base documentaire technique (RAG) et des
+                            outils comme FreeCAD et Godot. Il propose trois modes de travail,
+                            Conversation, Engineering et Code, qui partagent la mémoire du projet en cours.
+                        </p>
+                    </div>
+
+                    <div class="detail-bloc">
+                        <h3>Fonctions principales</h3>
+                        <ul class="detail-liste">
+                            <li>Création de pièces dans FreeCAD et vérification de calculs mécaniques.</li>
+                            <li>Recherche dans une base documentaire d’ingénierie et de code, avec citation des passages utilisés.</li>
+                            <li>Mémoire de projet : contraintes, unités et décisions conservées d’une conversation à l’autre.</li>
+                            <li>Un atelier qui regroupe les fichiers produits et les modèles 3D.</li>
+                            <li>Pièces jointes, images collées et dictée vocale.</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-bloc">
+                        <h3>En cours de développement</h3>
+                        <p>
+                            Un moteur d’autoamélioration encadré : SamEngine propose une modification
+                            limitée de son propre code, la teste dans une copie isolée, puis ne
+                            l’adopte que si une évaluation indépendante la valide. Chaque changement
+                            reste réversible. Viendront ensuite les dessins techniques à partir des
+                            modèles 3D et les assemblages avec liaisons.
+                        </p>
+                    </div>
+
+                    <div class="galerie-projet galerie-detail">
+                        <figure>
+                            <button class="bouton-image" type="button" aria-label="Agrandir l’accueil en thème clair">
+                                <img class="image-cover" src="images/hobbys/samengine-clair.jpg" alt="Accueil de SamEngine en thème clair" loading="lazy">
+                            </button>
+                            <figcaption>L’accueil en thème clair.</figcaption>
+                        </figure>
+                        <figure>
+                            <button class="bouton-image" type="button" aria-label="Agrandir la mémoire du projet">
+                                <img class="image-cover" src="images/hobbys/samengine-projet.jpg" alt="Fenêtre Mémoire du projet de SamEngine" loading="lazy">
+                            </button>
+                            <figcaption>La mémoire du projet, partagée entre les modes.</figcaption>
+                        </figure>
+                        <figure>
+                            <button class="bouton-image" type="button" aria-label="Agrandir l’atelier">
+                                <img class="image-cover" src="images/hobbys/samengine-atelier.jpg" alt="Panneau Atelier de SamEngine à côté d’un calcul de couple" loading="lazy">
+                            </button>
+                            <figcaption>L’atelier à côté d’un calcul de couple.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+
+                <!-- SamEngineOS -->
+
+                <div class="detail" id="detail-samengineos" hidden>
+                    <header class="detail-entete">
+                        <p class="hobby-type">Logiciel · Pré-version</p>
+                        <h2 id="titre-detail-samengineos">SamEngineOS</h2>
+                        <p class="detail-chapeau">
+                            Une porte d’entrée simple vers l’ingénierie avec des logiciels libres,
+                            pensée pour aller au bout d’une vraie tâche.
+                        </p>
+                    </header>
+
+                    <figure class="detail-video">
+                        <button class="bouton-image detail-image-principale" type="button" aria-label="Agrandir l’accueil du lanceur">
+                            <img src="images/hobbys/samengineos-accueil.jpg" alt="Accueil du lanceur : Que voulez-vous faire ?" loading="lazy">
+                        </button>
+                        <figcaption>L’accueil du lanceur, en mode simulation.</figcaption>
+                    </figure>
+
+                    <dl class="detail-meta">
+                        <div><dt>Langage</dt><dd>Python</dd></div>
+                        <div><dt>Interface</dt><dd>PySide6 (Qt)</dd></div>
+                        <div><dt>Systèmes visés</dt><dd>Ubuntu et Debian</dd></div>
+                        <div><dt>Statut</dt><dd>Pré-version 0.1</dd></div>
+                    </dl>
+
+                    <div class="detail-bloc">
+                        <h3>L’idée</h3>
+                        <p>
+                            Installer FreeCAD, CalculiX ou KiCad et savoir par où commencer reste
+                            un obstacle pour beaucoup d’étudiants. SamEngineOS installe des
+                            environnements complets et propose un lanceur orienté tâches : on choisit
+                            « Analyser des contraintes » plutôt que « ouvrir CalculiX ». Des parcours
+                            guidés accompagnent ensuite l’utilisateur jusqu’au résultat, et l’aident
+                            à le critiquer.
+                        </p>
+                    </div>
+
+                    <div class="detail-bloc">
+                        <h3>Principes de conception</h3>
+                        <ul class="detail-liste">
+                            <li>Aucun compte, abonnement ou service en ligne obligatoire.</li>
+                            <li>Uniquement des paquets signés des dépôts officiels, installés sans exécuter l’interface en administrateur.</li>
+                            <li>Une désinstallation propre, qui ne retire que ce que le programme a lui-même ajouté.</li>
+                            <li>Aucune modification des disques, du démarrage ou des pilotes.</li>
+                            <li>Un mode simulation et des tests automatisés pour développer sans rien installer.</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-bloc">
+                        <h3>Profils</h3>
+                        <dl class="detail-meta detail-meta-profils">
+                            <div><dt>Mécanique</dt><dd>FreeCAD avec CalculiX, Gmsh, OpenSCAD</dd></div>
+                            <div><dt>Électronique</dt><dd>KiCad, ngspice</dd></div>
+                            <div><dt>Calcul scientifique</dt><dd>GNU Octave, NumPy, SciPy, Matplotlib, Jupyter</dd></div>
+                        </dl>
+                    </div>
+
+                    <div class="galerie-projet galerie-detail">
+                        <figure>
+                            <button class="bouton-image" type="button" aria-label="Agrandir le parcours guidé">
+                                <img class="image-cover" src="images/hobbys/samengineos-parcours.jpg" alt="Parcours guidé : simuler une poutre en flexion" loading="lazy">
+                            </button>
+                            <figcaption>Parcours guidé : simuler une poutre en flexion.</figcaption>
+                        </figure>
+                        <figure>
+                            <button class="bouton-image" type="button" aria-label="Agrandir la page des profils">
+                                <img class="image-cover" src="images/hobbys/samengineos-profils.jpg" alt="Page des profils avec la liste des logiciels et leurs licences" loading="lazy">
+                            </button>
+                            <figcaption>Chaque profil liste ses logiciels, leurs licences et leurs sources.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
         <!-- Contact -->
 
         <section class="section contact" id="contact">
             <div class="conteneur">
                 <div class="contact-interieur reveal">
                     <p class="surtitre">
-                        <span class="section-numero">06</span>
+                        <span class="section-numero">07</span>
                         Me contacter
                     </p>
 
@@ -1299,7 +1803,7 @@
         </button>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=3"></script>
 
 </body>
 
